@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition- header'
+define service ZSd_header_ppee {
+  expose zc_header_ppee as Header;
+  expose zc_item_ppee   as Item;
+}

@@ -1,0 +1,18 @@
+interface;
+
+define behavior for zi_header_ppee alias Header
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Item { create; }
+}
+
+define behavior for zi_item_ppee alias Item
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}

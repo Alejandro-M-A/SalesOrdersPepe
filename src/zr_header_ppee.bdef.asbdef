@@ -1,0 +1,28 @@
+managed;
+strict ( 2 );
+
+define behavior for zr_header_ppee alias Header
+implementation in class zcl_header_ppee unique
+persistent table zheader_0381
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _Item { create; }
+}
+
+define behavior for zr_item_ppee alias Item
+implementation in class zcl_item_ppee unique
+persistent table zama_items_0381
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) header_id;
+  association _Header;
+}
